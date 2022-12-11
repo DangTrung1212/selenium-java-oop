@@ -2,6 +2,7 @@ package Lab_02;
 
 import java.util.Scanner;
 
+//Exercise 2.1 & 2.3
 public class BMICalculator {
         public static void main(String[] args) {
             System.out.println("Welcome ");

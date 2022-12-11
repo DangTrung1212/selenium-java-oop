@@ -1,7 +1,7 @@
 package Lab_02;
 
 import static Lab_02.BMICalculator.getInputValue;
-
+// Exercise 2.2
 public class OddEvenIdentifier {
     public static void main(String[] args) {
         System.out.println("Welcome to Odd or Even Identifier ");
