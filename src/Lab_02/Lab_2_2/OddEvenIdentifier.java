@@ -1,11 +1,12 @@
-package Lab_02;
+package Lab_02.Lab_2_2;
 
-import static Lab_02.BMICalculator.getInputValue;
+import Lab_02.Lab_2_1and2_3.BMICalculator;
+
 // Exercise 2.2
 public class OddEvenIdentifier {
     public static void main(String[] args) {
         System.out.println("Welcome to Odd or Even Identifier ");
-        float userInput = getInputValue("Enter your number ");
+        float userInput = BMICalculator.getInputValue("Enter your number ");
         if (userInput % 2 == 0) {
             System.out.println("Odd number");
         } else {
