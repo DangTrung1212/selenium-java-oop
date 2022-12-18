@@ -1,7 +1,6 @@
 package Lab_02;
 import Helper.Input;
 
-//Exercise 2.1 & 2.3
 public class BMICalculator {
     final static float UNDERWEIGHT_BMI = 18.5f;
     final static float MIN_NORMAL_WEIGHT_BMI = 18.5f;
