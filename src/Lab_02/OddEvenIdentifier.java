@@ -1,8 +1,8 @@
-package Lab_02.Lab_2_2;
+package Lab_02;
 
 import Helper.Input;
 
-// Exercise 2.2
+// LAB 2.2
 public class OddEvenIdentifier {
     public static void main(String[] args) {
         System.out.println("Welcome to Odd or Even Identifier ");

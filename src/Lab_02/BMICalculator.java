@@ -1,4 +1,4 @@
-package Lab_02.Lab_2_1and2_3;
+package Lab_02;
 import Helper.Input;
 
 //Exercise 2.1 & 2.3
@@ -8,6 +8,8 @@ public class BMICalculator {
     final static float MAX_NORMAL_WEIGHT_BMI = 25f;
     final static float MIN_OVERWEIGHT_BMI = 25f;
     final static float MAX_OVERWEIGHT_BMI = 30f;
+
+//LAB 2.1
 
     public static void main(String[] args) {
         System.out.println("Welcome ");
@@ -34,7 +36,7 @@ public class BMICalculator {
         }
     }
 
-
+//lAB 2.3
     public static void suggestUserWeight(float userWeight, float userHeight, float BMIIndex) {
         if (BMIIndex > MAX_NORMAL_WEIGHT_BMI) {
             float desiredWeight = MAX_NORMAL_WEIGHT_BMI * 2 * userHeight;
