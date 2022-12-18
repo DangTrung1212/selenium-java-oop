@@ -7,7 +7,9 @@ public class Array {
         countOddEven(Input.getIntArrayInputValue());
     }
 
-//    lab 3.1
+/**
+ * LAB 3.1
+ */
     public static void countOddEven(int[] intArr) {
         int numbersOfOdd = 0;
         int numbersOfEven = 0;
