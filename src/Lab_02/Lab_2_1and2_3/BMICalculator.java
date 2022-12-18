@@ -1,6 +1,5 @@
 package Lab_02.Lab_2_1and2_3;
-
-import java.util.Scanner;
+import Helper.Input;
 
 //Exercise 2.1 & 2.3
 public class BMICalculator {
@@ -14,8 +13,8 @@ public class BMICalculator {
         System.out.println("Welcome ");
         boolean isEnded = false;
         while (!isEnded) {
-            float userHeight = getInputValue("Enter your height(meter): ");
-            float userWeight = getInputValue("Enter your weight(kilogram): ");
+            float userHeight = Input.getFloatInputValue("Enter your height(meter): ");
+            float userWeight = Input.getFloatInputValue("Enter your weight(kilogram): ");
             final float BMI_INDEX = userWeight / (userHeight * 2);
 
             if (BMI_INDEX < UNDERWEIGHT_BMI) {
@@ -31,14 +30,10 @@ public class BMICalculator {
                 suggestUserWeight(userWeight, userHeight, BMI_INDEX);
             }
 
-            isEnded = getInputValue("Press any number to re-enter. Enter 0 to quit ") == 0;
+            isEnded = Input.getFloatInputValue("Press any number to re-enter. Enter 0 to quit ") == 0;
         }
     }
 
-    public static float getInputValue(String message) {
-        System.out.print(message);
-        return new Scanner(System.in).nextFloat();
-    }
 
     public static void suggestUserWeight(float userWeight, float userHeight, float BMIIndex) {
         if (BMIIndex > MAX_NORMAL_WEIGHT_BMI) {
