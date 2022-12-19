@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class OriginalArray {
     public static void main(String[] args) {
-        lineNearSort(Input.getIntArrayInputValue());
+        linearSort(Input.getIntArrayInputValue());
     }
 
 /* LAB 3.1 */
