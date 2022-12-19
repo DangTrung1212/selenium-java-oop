@@ -4,7 +4,7 @@ import Helper.Input;
 
 import java.util.Arrays;
 
-public class Array {
+public class OriginalArray {
     public static void main(String[] args) {
         lineNearSort(Input.getIntArrayInputValue());
     }
@@ -41,16 +41,19 @@ public class Array {
     }
 /* LAB 3.3 */
     public static int[] lineNearSort(int[] intArr) {
+//        Loop through array, find min number and swap with number i
         for (int i = 0 ; i < intArr.length; i++ ) {
             int min = intArr[i];
+            int minIndex = i;
             for (int j = i + 1; j < intArr.length; j++) {
                 if (intArr[j] <= min) {
                     min = intArr[j];
-                    intArr[i] = min;
+                    minIndex = j; //detect minIndex to swap later
                 }
             }
-
-
+            int temp = intArr[i];
+            intArr[i] = min;
+            intArr[minIndex] = temp;
         }
         System.out.println(Arrays.toString(intArr));
         return intArr;
