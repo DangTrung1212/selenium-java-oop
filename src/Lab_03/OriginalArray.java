@@ -40,7 +40,7 @@ public class OriginalArray {
         System.out.println("Min number is: " + min);
     }
 /* LAB 3.3 */
-    public static int[] lineNearSort(int[] intArr) {
+    public static int[] linearSort(int[] intArr) {
 //        Loop through array, find min number and swap with number i
         for (int i = 0 ; i < intArr.length; i++ ) {
             int min = intArr[i];
