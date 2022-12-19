@@ -58,7 +58,16 @@ public class OriginalArray {
         System.out.println(Arrays.toString(intArr));
         return intArr;
     }
+//    [5, 6, 9, 1]
+    public static int[] linearSort2(int[] intArr) {
+        int[] sorted = new int[intArr.length];
+        for (int i = 0; i < intArr.length; i++) {
+            int min = intArr[i];
+            for (int j = i + 1;j < intArr.length)
 
+        }
+
+    }
 
 }
 
