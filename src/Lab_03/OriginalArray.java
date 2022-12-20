@@ -7,10 +7,12 @@ import java.util.HashMap;
 
 public class OriginalArray {
     public static void main(String[] args) {
-        bubbleSort(Input.getIntArrayInputValue());
+        int[] first = {1,8,11, 12, 19};
+        int[] second = {1,8,11};
+        sortTwoSortArrays(Input.getIntArrayInputValue(), Input.getIntArrayInputValue());
     }
 
-    /* LAB 3.1 */
+                                                    /* LAB 3.1 */
     public static void countOddEven(int[] intArr) {
         int numbersOfOdd = 0;
         int numbersOfEven = 0;
@@ -25,7 +27,7 @@ public class OriginalArray {
         System.out.println("Even Numbers: " + numbersOfEven);
     }
 
-    /* LAB 3.2 */
+                                                    /* LAB 3.2 */
     public static HashMap<String, Integer> findMaxMin(int[] intArr) {
         int max = intArr[0];
         int min = intArr[0];
@@ -43,9 +45,11 @@ public class OriginalArray {
         return minMax;
     }
 
-    /* LAB 3.3 */
+                                                    /* LAB 3.3 */
+
+//    Solution 1: Loop through array, keep for loop from the element next to i to the last element,
+//    find min number and swap with number i
     public static int[] linearSort(int[] intArr) {
-//        Loop through array, find min number and swap with number i
         for (int i = 0; i < intArr.length; i++) {
             int min = intArr[i];
             int minIndex = i;
@@ -63,7 +67,8 @@ public class OriginalArray {
         return intArr;
     }
 
-    //  linear sort using temp arr
+// Solution 2: linear sort using temp arr, every time sortedArr get pushed element, temp arr tracks that element and
+//              pop that element from intArr
     public static int[] linearSort2(int[] intArr) {
         int[] sortedArr = new int[intArr.length];
         int sortArrIndex = 0;
@@ -77,41 +82,70 @@ public class OriginalArray {
                     temp[k++] = intArr[i];
                 }
             }
-            intArr = temp; // assign again
+            intArr = temp; // assign again to reduce intArr length
             sortArrIndex++;
         }
         System.out.println(Arrays.toString(sortedArr));
         return sortedArr;
     }
 
-    //    Bubble Sort
+//  Solution 3:  Bubble Sort
     public static int[] bubbleSort(int[] intArr) {
         while (true) {
-            int swapNumber = 0;
+            int swapNumbers = 0;
             for (int i = 0; i < intArr.length - 1; i++) {
                 if (intArr[i] > intArr[i + 1]) {
                     int temp = intArr[i];
                     intArr[i] = intArr[i + 1];
                     intArr[i + 1] = temp;
-                    swapNumber++;
+                    swapNumbers++;
                 }
             }
-            if (swapNumber == 0) {
+            if (swapNumbers == 0) {
                 break;
             }
         }
         System.out.println(Arrays.toString(intArr));
         return intArr;
     }
-/* 3.4 sort array of 2 sorted arrays
- */
-//    public static int[] sortTwoSortArrays(int[] intArr1, int[] getIntArr2) {
-//        int[] combinedArray = new int[intArr1.length + getIntArr2.length];
-//        if (intArr1.length >= getIntArr2.length) {
-//            for (int i = 0, j = 0; i < intArr1.length; i++) {
+                                 /* 3.4 sort array of 2 sorted arrays */
+
+//    Solution 1: compare two tracking index, push smaller value to mergedSortArr, increase its index,
+//    find the array still has element, assign the left elements to mergeSortArr.
+    public static int[] sortTwoSortArrays(int[] intArr1, int[] intArr2) {
+
+        int[] mergedSortArr = new int[intArr1.length + intArr2.length];
+        int i = 0;
+        int j = 0;
+//      while loop until 1 array done
+        while (i < intArr1.length && j < intArr2.length) {
+            if (intArr1[i] < intArr2[j]) {
+                mergedSortArr[i+j] = intArr1[i];
+                i++;
+
+            } else {
+                mergedSortArr[i+j] = intArr2[j];
+                j++;
+            }
+        }
+//        current index of mergedSortArr
+        int indexAfterSort = j + i;
+//        find which array has left element, while loop until finishing mergedSortArray
+        if (i-j >= 0) {
+            while (indexAfterSort < mergedSortArr.length) {
 //
-//
-//            }
-//        }
-//    }
+                    mergedSortArr[indexAfterSort] = intArr2[j];
+                    j++;
+                    indexAfterSort++;
+            }
+        } else {
+            while (indexAfterSort < mergedSortArr.length) {
+                mergedSortArr[indexAfterSort] = intArr1[i];
+                i++;
+                indexAfterSort++;
+            }
+        }
+        System.out.println(Arrays.toString(mergedSortArr));
+        return mergedSortArr;
+    }
 }
