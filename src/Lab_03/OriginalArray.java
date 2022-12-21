@@ -7,9 +7,8 @@ import java.util.HashMap;
 
 public class OriginalArray {
     public static void main(String[] args) {
-        int[] first = {1,8,11, 12, 19};
-        int[] second = {1,8,11};
-        sortTwoSortArrays(Input.getIntArrayInputValue(), Input.getIntArrayInputValue());
+
+
     }
 
                                                     /* LAB 3.1 */
@@ -29,20 +28,25 @@ public class OriginalArray {
 
                                                     /* LAB 3.2 */
     public static HashMap<String, Integer> findMaxMin(int[] intArr) {
-        int max = intArr[0];
-        int min = intArr[0];
-        for (int number : intArr) {
-            if (number >= max) {
-                max = number;
+        try {
+            int max = intArr[0];
+            int min = intArr[0];
+            for (int number : intArr) {
+                if (number >= max) {
+                    max = number;
+                }
+                if (number <= min) {
+                    min = number;
+                }
             }
-            if (number <= min) {
-                min = number;
-            }
+            HashMap<String, Integer> minMax = new HashMap<>();
+            minMax.put("min", min);
+            minMax.put("max", max);
+            return minMax;
+        } catch(ArrayIndexOutOfBoundsException e) {
+            System.out.println("Array is empty. ");
+            return new HashMap<String,Integer>();
         }
-        HashMap<String, Integer> minMax = new HashMap<>();
-        minMax.put("min", min);
-        minMax.put("max", max);
-        return minMax;
     }
 
                                                     /* LAB 3.3 */

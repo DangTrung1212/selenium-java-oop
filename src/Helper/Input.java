@@ -4,14 +4,17 @@ import java.util.Scanner;
 
 public class Input {
     private static final Scanner scanner = new Scanner(System.in);
+
     public static float getFloatInputValue(String message) {
         System.out.print(message);
         return scanner.nextFloat();
     }
+
     public static String getStringInputValue(String message) {
         System.out.print(message);
         return scanner.next();
     }
+
     public static int[] getIntArrayInputValue() {
 //        Todo: need to use @Value to assign default value for message
         String sizeMessage = "Enter size of your array: ";
@@ -24,6 +27,10 @@ public class Input {
             intArr[i] = scanner.nextInt();
         }
         return intArr;
+    }
 
+    public static int getIntInputValue(String message) {
+        System.out.print(message);
+        return scanner.nextInt();
     }
 }
