@@ -1,5 +1,5 @@
-package Lab_02;
-import Helper.Input;
+package lab_02;
+import helper.Input;
 
 public class BMICalculator {
     final static float UNDERWEIGHT_BMI = 18.5f;

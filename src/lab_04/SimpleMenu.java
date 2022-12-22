@@ -1,7 +1,7 @@
-package Lab_04;
+package lab_04;
 
-import Helper.Input;
-import Lab_03.OriginalArray;
+import helper.Input;
+import lab_03.OriginalArray;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,6 +1,4 @@
-package Lab_03;
-
-import Helper.Input;
+package lab_03;
 
 import java.util.Arrays;
 import java.util.HashMap;

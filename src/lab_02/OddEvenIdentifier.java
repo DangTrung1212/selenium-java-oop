@@ -1,6 +1,6 @@
-package Lab_02;
+package lab_02;
 
-import Helper.Input;
+import helper.Input;
 
 // LAB 2.2
 public class OddEvenIdentifier {
