@@ -2,12 +2,14 @@ package lab_06;
 
 import helper.Input;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringChecker {
     public static void main(String[] args) {
-        calculateTimeFromString(Input.getStringInputValue("Enter your string: "));
+        checkValidUrl(Input.getStringInputValue("Enter your string: "));
     }
                                     /* 6.1 */
     public static int calculateTimeFromString(String text) {
@@ -48,12 +50,30 @@ public class StringChecker {
     }
                                 /* Lab 6.3 */
     public static String removeCharacter(String string) {
-        return string.replaceAll("[^0-9]", "");
+        List<Character> arrayOfNumbers = new ArrayList<>();
+        for (char c : string.toCharArray()) {
+            if (Character.isDigit(c)) {
+                arrayOfNumbers.add(c);
+            }
+        }
+        return arrayOfNumbers.toString();
     }
 
                                 /* Lab 6.4*/
+//    group start at group 1
     public static boolean checkValidUrl(String url) {
-        return url.matches("^https?.+\\.(com|net)");
+        Pattern pattern = Pattern.compile("(^https?)://(.+)\\.(com|net)");
+        Matcher matcher = pattern.matcher(url);
+        boolean match = matcher.find();
+        if (match) {
+            System.out.println("Protocol is: " + matcher.group(1));
+            System.out.println("Domain is: " + matcher.group(2));
+            System.out.println("Extension is: " + matcher.group(3));
+            return true;
+        } else {
+            System.out.println("Not Valid url");
+            return false;
+        }
     }
 
 }
