@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class StringChecker {
     public static void main(String[] args) {
-        calculateTimeFromString("2 hrs and 5min");
+        calculateTimeFromString(Input.getStringInputValue("Enter your string: "));
     }
                                     /* 6.1 */
     public static int calculateTimeFromString(String text) {

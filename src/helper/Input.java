@@ -12,7 +12,7 @@ public class Input {
 
     public static String getStringInputValue(String message) {
         System.out.print(message);
-        return scanner.next();
+        return scanner.nextLine();
     }
 
     public static int[] getIntArrayInputValue() {
