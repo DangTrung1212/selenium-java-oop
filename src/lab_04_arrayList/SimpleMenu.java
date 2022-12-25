@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class SimpleMenu {
-    static List<Integer> arrayList = new ArrayList<>();
-    static boolean isContinued = true;
+    static  List<Integer> arrayList = new ArrayList<>();
+    private static boolean isContinued = true;
 
     public static void main(String[] args) {
         do {
@@ -41,7 +41,11 @@ public class SimpleMenu {
                 addNumberToArrayList(arrayList);
                 break;
             case 2:
-                printNumbersOfArrayList(arrayList);
+                if (arrayList.isEmpty()) {
+                    System.out.println("There is no element in ArrayList right now, please add more.");
+                } else {
+                    printNumbersOfArrayList(arrayList);
+                }
                 break;
             case 3:
                 System.out.println(getMinMaxInArrayList(arrayList).get("max"));

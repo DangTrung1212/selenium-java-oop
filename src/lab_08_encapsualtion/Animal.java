@@ -30,6 +30,8 @@ public class Animal {
         hasWing = builder.hasWing;
         speed = builder.speed;
         name = builder.name;
+        System.out.println(this);
+
     }
 
 //    inner class for constructor data, only call AnimalWithBuilder when Builder class call method build
@@ -53,10 +55,18 @@ public class Animal {
             this.speed = new SecureRandom().nextInt(maxSpeed);
             return this;
         }
-
 //  build method call protected constructor
         public Animal build() {
             return new Animal(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "hasWing=" + hasWing +
+                ", speed=" + speed +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
