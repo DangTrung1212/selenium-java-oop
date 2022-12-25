@@ -1,4 +1,4 @@
-package lab_07_01;
+package lab_07_01_oopInheritance;
 
 public class FullTimeEmployee extends Employee{
     final static int SALARY = 50000;

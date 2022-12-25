@@ -1,10 +1,9 @@
-package lab_07_01;
+package lab_07_01_oopInheritance;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class TotalSalary {
-
                                             /* 7.1 */
     public static void main(String[] args) {
         Employee a = new FullTimeEmployee();

@@ -1,4 +1,4 @@
-package lab_06;
+package lab_06_string;
 
 import helper.Input;
 

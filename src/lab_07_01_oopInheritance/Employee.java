@@ -1,4 +1,4 @@
-package lab_07_01;
+package lab_07_01_oopInheritance;
 
 public class Employee {
     private final int salary;
