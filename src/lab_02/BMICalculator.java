@@ -1,4 +1,5 @@
 package lab_02;
+
 import helper.Input;
 
 public class BMICalculator {

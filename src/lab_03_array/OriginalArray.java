@@ -129,20 +129,20 @@ public class OriginalArray {
             }
         }
 //        current index of mergedSortArr
-        int indexAfterSort = j + i;
+        int indexAfterMerge = j + i;
 //        find which array has left element, while loop until finishing mergedSortArray
         if (i-j >= 0) {
-            while (indexAfterSort < mergedSortArr.length) {
+            while (indexAfterMerge < mergedSortArr.length) {
 //
-                    mergedSortArr[indexAfterSort] = intArr2[j];
+                    mergedSortArr[indexAfterMerge] = intArr2[j];
                     j++;
-                    indexAfterSort++;
+                    indexAfterMerge++;
             }
         } else {
-            while (indexAfterSort < mergedSortArr.length) {
-                mergedSortArr[indexAfterSort] = intArr1[i];
+            while (indexAfterMerge < mergedSortArr.length) {
+                mergedSortArr[indexAfterMerge] = intArr1[i];
                 i++;
-                indexAfterSort++;
+                indexAfterMerge++;
             }
         }
         System.out.println(Arrays.toString(mergedSortArr));

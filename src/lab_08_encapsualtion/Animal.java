@@ -34,7 +34,7 @@ public class Animal {
 
     }
 
-//    inner class for constructor data, only call AnimalWithBuilder when Builder class call method build
+//    inner class for constructor data, only call constructor Animal(builder) when Builder class call method build
     public static class Builder {
         private boolean hasWing;
         private int speed;
@@ -55,6 +55,7 @@ public class Animal {
             this.speed = new SecureRandom().nextInt(maxSpeed);
             return this;
         }
+
 //  build method call protected constructor
         public Animal build() {
             return new Animal(this);
