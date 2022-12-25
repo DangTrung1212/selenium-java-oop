@@ -73,15 +73,10 @@ public class SimpleMenu {
 
     public static void printNumbersOfArrayList(List<Integer> arrayList) {
         System.out.println("This is numbers of ArrayList: ");
-        try {
-            for (int integer : arrayList) {
-                System.out.println(integer);
-            }
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("There is no number in ArrayList.");
+        for (int integer : arrayList) {
+            System.out.println(integer);
         }
     }
-
     public static HashMap<String, Integer> getMinMaxInArrayList(List<Integer> arrayList) {
         int[] array = new int[arrayList.size()];
         for (int i = 0; i < arrayList.size(); i++) {
