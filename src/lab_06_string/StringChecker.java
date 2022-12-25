@@ -9,18 +9,20 @@ import java.util.regex.Pattern;
 public class StringChecker {
 
     public static void main(String[] args) {
-        checkValidUrl(Input.getStringInputValue("Enter your string: "));
+        calculateTimeFromString(Input.getStringInputValue("Enter your string: "));
     }
                                     /* 6.1 */
     public static int calculateTimeFromString(String text) {
 //        find hours and minute string from text
+//        TODO: this must add try catch to handle exception if we want to calculate when user input 1 single hours/
+//         minute number.
         Pattern hoursPattern = Pattern.compile("(\\d+)\\s?(hrs|hours)");
         Matcher hoursMatcher = hoursPattern.matcher(text);
         Pattern minPattern = Pattern.compile("(\\d+)\\s?(min|minutes)");
         Matcher minMatcher = minPattern.matcher(text);
 //        check if it finds valid pattern
         if(hoursMatcher.find() && minMatcher.find()){
-//            divide number from hour/min string
+//            separate number from hour/min string
             int numberOfHours = Integer.parseInt(hoursMatcher.group(1));
             int numberOfMinutes = Integer.parseInt(minMatcher.group(1));
             int totalMin = numberOfHours*60 + numberOfMinutes;
