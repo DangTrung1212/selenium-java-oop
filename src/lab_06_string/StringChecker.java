@@ -14,7 +14,7 @@ public class StringChecker {
                                     /* 6.1 */
     public static int calculateTimeFromString(String text) {
 //        find hours and minute string from text
-        Pattern hoursPattern = Pattern.compile("(\\d)+\\s?(hrs|hours)");
+        Pattern hoursPattern = Pattern.compile("(\\d+)\\s?(hrs|hours)");
         Matcher hoursMatcher = hoursPattern.matcher(text);
         Pattern minPattern = Pattern.compile("(\\d+)\\s?(min|minutes)");
         Matcher minMatcher = minPattern.matcher(text);
