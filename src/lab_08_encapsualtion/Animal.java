@@ -2,6 +2,9 @@ package lab_08_encapsualtion;
 
 import java.security.SecureRandom;
 
+/**Build design pattern is used for class has lots of attributes and Object after initialized is immutable(no setter
+ * method)
+ **/
 public class Animal {
     private boolean hasWing;
     private int speed;
@@ -47,7 +50,7 @@ public class Animal {
             this.speed = new SecureRandom().nextInt(maxSpeed);
             return this;
         }
-
+//  build method call protected constructor
         public Animal build() {
             return new Animal(this);
         }
