@@ -1,6 +1,7 @@
 package lab_06_string;
 
 import helper.Input;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -11,7 +12,8 @@ public class StringChecker {
     public static void main(String[] args) {
         calculateTimeFromString(Input.getStringInputValue("Enter your string: "));
     }
-                                    /* 6.1 */
+
+    /* 6.1 */
     public static int calculateTimeFromString(String text) {
 //        find hours and minute string from text
 //        TODO: this must add try catch to handle exception if we want to calculate when user input 1 single hours/
@@ -21,11 +23,11 @@ public class StringChecker {
         Pattern minPattern = Pattern.compile("(\\d+)\\s?(min|minutes)");
         Matcher minMatcher = minPattern.matcher(text);
 //        check if it finds valid pattern
-        if(hoursMatcher.find() && minMatcher.find()){
+        if (hoursMatcher.find() && minMatcher.find()) {
 //            separate number from hour/min string
             int numberOfHours = Integer.parseInt(hoursMatcher.group(1));
             int numberOfMinutes = Integer.parseInt(minMatcher.group(1));
-            int totalMin = numberOfHours*60 + numberOfMinutes;
+            int totalMin = numberOfHours * 60 + numberOfMinutes;
             System.out.println("Total min is: " + totalMin);
             return totalMin;
         } else {
@@ -34,7 +36,7 @@ public class StringChecker {
         }
     }
 
-                                    /* 6.2 */
+    /* 6.2 */
     public static boolean checkUserPassword(String password) {
         int attemptNumber = 3;
         do {
@@ -51,7 +53,7 @@ public class StringChecker {
         return false;
     }
 
-                                /* Lab 6.3 */
+    /* Lab 6.3 */
     public static String removeCharacter(String string) {
         List<Character> arrayOfNumbers = new ArrayList<>();
         for (char c : string.toCharArray()) {
@@ -62,7 +64,7 @@ public class StringChecker {
         return arrayOfNumbers.toString();
     }
 
-                                /* Lab 6.4*/
+    /* Lab 6.4*/
 //    Group start at group 1
     public static boolean checkValidUrl(String url) {
         Pattern pattern = Pattern.compile("(^https?)://(.+)\\.(com|net)");

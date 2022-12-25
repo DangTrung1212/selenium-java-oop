@@ -4,11 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TotalSalary {
-                                            /* 7.1 */
+
     public static void main(String[] args) {
         Employee a = new FullTimeEmployee();
         Employee b = new PartTimeEmployee();
-        List<Employee> employeeList = Arrays.asList(a,b);
+        List<Employee> employeeList = Arrays.asList(a, b);
         System.out.println(getTotalSalary(employeeList));
     }
 

@@ -2,7 +2,8 @@ package lab_08_encapsualtion;
 
 import java.security.SecureRandom;
 
-/**Build design pattern is used for class has lots of attributes and Object after initialized is immutable(no setter
+/**
+ * Build design pattern is used for class has lots of attributes and Object after initialized is immutable(no setter
  * method)
  **/
 public class Animal {
@@ -10,6 +11,7 @@ public class Animal {
     private boolean hasWing;
     private int speed;
     private String name;
+
     public Animal() {
     }
 
@@ -34,7 +36,7 @@ public class Animal {
 
     }
 
-//    inner class for constructor data, only call constructor Animal(builder) when Builder class call method build
+    //    inner class for constructor data, only call constructor Animal(builder) when Builder class call method build
     public static class Builder {
         private boolean hasWing;
         private int speed;
@@ -56,7 +58,7 @@ public class Animal {
             return this;
         }
 
-//  build method call protected constructor
+        //  build method call protected constructor
         public Animal build() {
             return new Animal(this);
         }

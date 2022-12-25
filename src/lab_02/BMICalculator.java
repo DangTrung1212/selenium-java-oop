@@ -10,7 +10,7 @@ public class BMICalculator {
     final static float MIN_OVERWEIGHT_BMI = 25f;
     final static float MAX_OVERWEIGHT_BMI = 30f;
 
-//LAB 2.1
+    //LAB 2.1
     public static void main(String[] args) {
         System.out.println("Welcome ");
         boolean isEnded = false;
@@ -36,7 +36,7 @@ public class BMICalculator {
         }
     }
 
-//lAB 2.3
+    //lAB 2.3
     public static void suggestUserWeight(float userWeight, float userHeight, float BMIIndex) {
         if (BMIIndex > MAX_NORMAL_WEIGHT_BMI) {
             float desiredWeight = MAX_NORMAL_WEIGHT_BMI * 2 * userHeight;

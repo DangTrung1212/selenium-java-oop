@@ -7,13 +7,13 @@ public class Race {
 
     public static void main(String[] args) {
         Animal dog = new Dog("dog");
-        Animal tiger= new Tiger("tiger");
+        Animal tiger = new Tiger("tiger");
         Animal horse = new Horse("horse");
-        List<Animal> animals = Arrays.asList(dog,tiger,horse);
+        List<Animal> animals = Arrays.asList(dog, tiger, horse);
         getWinner(animals);
     }
 
-    public static void getWinner(List<Animal> animals){
+    public static void getWinner(List<Animal> animals) {
         int max = animals.get(0).getSpeed();
         String winner = "";
         for (Animal animal : animals) {

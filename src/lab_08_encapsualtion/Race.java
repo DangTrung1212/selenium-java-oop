@@ -3,6 +3,7 @@ package lab_08_encapsualtion;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import static lab_08_encapsualtion.Animal.*;
 
 public class Race {
@@ -21,9 +22,9 @@ public class Race {
         int max = animalsWithoutWing.get(0).getSpeed();
         String winner = animalsWithoutWing.get(0).getName();
         for (Animal animal : animalsWithoutWing) {
-            if (animal.getSpeed() > max ) {
+            if (animal.getSpeed() > max) {
                 max = animal.getSpeed();
-                winner= animal.getName();
+                winner = animal.getName();
             }
         }
         System.out.printf("Winner is %s, with %d km/h", winner, max);

@@ -2,12 +2,13 @@ package lab_04_arrayList;
 
 import helper.Input;
 import lab_03_array.OriginalArray;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class SimpleMenu {
-    static  List<Integer> arrayList = new ArrayList<>();
+    static List<Integer> arrayList = new ArrayList<>();
     private static boolean isContinued = true;
 
     public static void main(String[] args) {
@@ -76,6 +77,7 @@ public class SimpleMenu {
             System.out.println(integer);
         }
     }
+
     public static HashMap<String, Integer> getMinMaxInArrayList(List<Integer> arrayList) {
         int[] array = new int[arrayList.size()];
         for (int i = 0; i < arrayList.size(); i++) {

@@ -15,6 +15,7 @@ public class Animal {
     public int getSpeed() {
         return speed;
     }
+
     public String getName() {
         return name;
     }
