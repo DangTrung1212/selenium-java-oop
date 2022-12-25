@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Race {
+
     public static void main(String[] args) {
         Animal dog = new Dog("dog");
         Animal tiger= new Tiger("tiger");
@@ -11,6 +12,7 @@ public class Race {
         List<Animal> animals = Arrays.asList(dog,tiger,horse);
         getWinner(animals);
     }
+
     public static void getWinner(List<Animal> animals){
         int max = animals.get(0).getSpeed();
         String winner = "";

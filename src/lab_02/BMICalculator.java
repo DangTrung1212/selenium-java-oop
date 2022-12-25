@@ -2,6 +2,7 @@ package lab_02;
 import helper.Input;
 
 public class BMICalculator {
+
     final static float UNDERWEIGHT_BMI = 18.5f;
     final static float MIN_NORMAL_WEIGHT_BMI = 18.5f;
     final static float MAX_NORMAL_WEIGHT_BMI = 25f;
@@ -9,7 +10,6 @@ public class BMICalculator {
     final static float MAX_OVERWEIGHT_BMI = 30f;
 
 //LAB 2.1
-
     public static void main(String[] args) {
         System.out.println("Welcome ");
         boolean isEnded = false;

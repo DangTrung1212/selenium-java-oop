@@ -11,6 +11,7 @@ public class TotalSalary {
         List<Employee> employeeList = Arrays.asList(a,b);
         System.out.println(getTotalSalary(employeeList));
     }
+
     public static double getTotalSalary(List<Employee> employeeList) {
         double total = 0;
         for (Employee employee : employeeList) {

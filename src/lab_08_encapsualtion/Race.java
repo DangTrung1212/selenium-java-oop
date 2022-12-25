@@ -15,6 +15,7 @@ public class Race {
         List<Animal> animals = Arrays.asList(tiger, snake, bird);
         getWinner(animals);
     }
+
     public static void getWinner(List<Animal> animals) {
         List<Animal> animalsWithoutWing = removeFlyAnimal(animals);
         int max = animalsWithoutWing.get(0).getSpeed();
@@ -28,6 +29,7 @@ public class Race {
         System.out.printf("Winner is %s, with %d km/h", winner, max);
 
     }
+
     public static List<Animal> removeFlyAnimal(List<Animal> animals) {
         List<Animal> animalsWithoutWing = new ArrayList<>();
         for (Animal animal : animals) {

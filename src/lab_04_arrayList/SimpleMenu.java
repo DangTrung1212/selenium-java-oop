@@ -18,6 +18,7 @@ public class SimpleMenu {
             handleUserOption(optionNumber);
         } while (isContinued);
     }
+
     public static void printMenuOption() {
         System.out.println(
                 "=====MENU======\n" +
@@ -29,6 +30,7 @@ public class SimpleMenu {
                         "5. Search number"
         );
     }
+
     public static void handleUserOption(int optionNumber) {
         switch (optionNumber) {
             case 1:
@@ -59,10 +61,12 @@ public class SimpleMenu {
                 System.out.println("Please enter valid number ");
         }
     }
+
     public static void addNumberToArrayList(List<Integer> arrayList) {
         int number = Input.getIntInputValue("Enter number you want to add into ArrayList: ");
         arrayList.add(number);
     }
+
     public static void printNumbersOfArrayList(List<Integer> arrayList) {
         System.out.println("This is numbers of ArrayList: ");
         try {
@@ -73,6 +77,7 @@ public class SimpleMenu {
             System.out.println("There is no number in ArrayList.");
         }
     }
+
     public static HashMap<String, Integer> getMinMaxInArrayList(List<Integer> arrayList) {
         int[] array = new int[arrayList.size()];
         for (int i = 0; i < arrayList.size(); i++) {

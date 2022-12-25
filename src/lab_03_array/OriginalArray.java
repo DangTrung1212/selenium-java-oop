@@ -6,7 +6,6 @@ import java.util.HashMap;
 public class OriginalArray {
     public static void main(String[] args) {
 
-
     }
 
                                                     /* LAB 3.1 */
@@ -48,7 +47,6 @@ public class OriginalArray {
     }
 
                                                     /* LAB 3.3 */
-
 //    Solution 1: Loop through array, keep for loop from the element next to i to the last element,
 //    find min number and swap with number i
     public static int[] linearSort(int[] intArr) {
@@ -110,8 +108,8 @@ public class OriginalArray {
         System.out.println(Arrays.toString(intArr));
         return intArr;
     }
-                                 /* 3.4 sort array of 2 sorted arrays */
 
+                                 /* 3.4 sort array of 2 sorted arrays */
 //    Solution 1: compare two tracking index, push smaller value to mergedSortArr, increase its index,
 //    find the array still has element, assign the left elements to mergeSortArr.
     public static int[] sortTwoSortArrays(int[] intArr1, int[] intArr2) {

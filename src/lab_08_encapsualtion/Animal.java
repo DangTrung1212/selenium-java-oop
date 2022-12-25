@@ -6,11 +6,12 @@ import java.security.SecureRandom;
  * method)
  **/
 public class Animal {
+
     private boolean hasWing;
     private int speed;
     private String name;
-//    public AnimalWithBuilder() {
-//    }
+    public Animal() {
+    }
 
     public boolean isHasWing() {
         return hasWing;
@@ -19,6 +20,7 @@ public class Animal {
     public String getName() {
         return name;
     }
+
     public int getSpeed() {
         return speed;
     }
@@ -29,6 +31,7 @@ public class Animal {
         speed = builder.speed;
         name = builder.name;
     }
+
 //    inner class for constructor data, only call AnimalWithBuilder when Builder class call method build
     public static class Builder {
         private boolean hasWing;
@@ -50,6 +53,7 @@ public class Animal {
             this.speed = new SecureRandom().nextInt(maxSpeed);
             return this;
         }
+
 //  build method call protected constructor
         public Animal build() {
             return new Animal(this);

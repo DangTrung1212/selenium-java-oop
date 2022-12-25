@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringChecker {
+
     public static void main(String[] args) {
         checkValidUrl(Input.getStringInputValue("Enter your string: "));
     }
@@ -48,6 +49,7 @@ public class StringChecker {
         System.out.println("Unfortunately, you can't process further.");
         return false;
     }
+
                                 /* Lab 6.3 */
     public static String removeCharacter(String string) {
         List<Character> arrayOfNumbers = new ArrayList<>();
@@ -60,7 +62,7 @@ public class StringChecker {
     }
 
                                 /* Lab 6.4*/
-//    group start at group 1
+//    Group start at group 1
     public static boolean checkValidUrl(String url) {
         Pattern pattern = Pattern.compile("(^https?)://(.+)\\.(com|net)");
         Matcher matcher = pattern.matcher(url);
