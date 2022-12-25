@@ -10,8 +10,8 @@ import java.util.List;
 public class SimpleMenu {
     static List<Integer> arrayList = new ArrayList<>();
     static boolean isContinued = true;
+
     public static void main(String[] args) {
-//        arrayList.add(0);
         do {
             printMenuOption();
             int optionNumber = Input.getIntInputValue("Enter your option number: ");
@@ -33,6 +33,10 @@ public class SimpleMenu {
 
     public static void handleUserOption(int optionNumber) {
         switch (optionNumber) {
+            case 0:
+                System.out.println("Thank you for joining. ");
+                isContinued = false;
+                break;
             case 1:
                 addNumberToArrayList(arrayList);
                 break;
@@ -52,10 +56,6 @@ public class SimpleMenu {
                 } else {
                     System.out.println("Your number is not in ArrayList...");
                 }
-                break;
-            case 0:
-                System.out.println("Thank you for joining. ");
-                isContinued = false;
                 break;
             default:
                 System.out.println("Please enter valid number ");
