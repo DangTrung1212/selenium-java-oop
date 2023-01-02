@@ -64,26 +64,8 @@ public class BookManagement {
         int isbn = Input.getIntInputValue("Please enter isbn of the book you want to search/update: ");
         List<Book> foundBooks = bookList.stream().filter(book -> book.getIsbn() == isbn)
                 .collect(Collectors.toList());
-        if (!foundBooks.isEmpty()) {
-            System.out.println("There is/are the book(s) you search with ISBN = " + isbn + " : ");
-            for (int i = 0; i < foundBooks.size(); i++) {
-                String foundBookString = String.format("Book %2d: %s\n" +
-                                "    ISBN: %.0f\n" +
-                                "    author: %s\n" +
-                                "    year: %d\n",
-                        i + 1,
-                        foundBooks.get(i).getTitle(),
-                        foundBooks.get(i).getIsbn(),
-                        foundBooks.get(i).getAuthor(),
-                        foundBooks.get(i).getYear());
-                System.out.println(foundBookString);
-            }
-            return foundBooks;
-
-        } else {
-            System.out.println("There is no book which has isbn you entered.");
-            return null;
-        }
+        System.out.println(Library.toString(foundBooks));
+        return foundBooks;
     }
 
     public static void writeNewBook() {

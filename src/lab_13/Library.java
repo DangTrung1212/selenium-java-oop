@@ -13,26 +13,27 @@ public class Library {
     static List<Book> bookList = Library.readBooksFromFile();
 
     public static List<Book> readBooksFromFile() {
+        List<Book> bookList = new ArrayList<>();
         try (FileInputStream fileInputStream = new FileInputStream(path);
              InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-             BufferedReader bufferedReader = new BufferedReader(inputStreamReader)
-        ) {
-            List<Book> bookList = new ArrayList<>();
+             BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
 //            Loop all line
             String dataLine = bufferedReader.readLine();
-            while (dataLine != null) {
-                String[] dataLineArr = dataLine.split(",");
-                System.out.println(Arrays.toString(dataLineArr));
-                int isbn = Integer.parseInt(dataLineArr[0]);
-                String title = dataLineArr[1];
-                String author = dataLineArr[2];
-                int year = Integer.parseInt(dataLineArr[3]);
-                bookList.add(new Book(isbn, title, author, year));
-                dataLine = bufferedReader.readLine();
+            if (dataLine != null) {
+                while (dataLine != null) {
+                    String[] dataLineArr = dataLine.split(",");
+                    System.out.println(Arrays.toString(dataLineArr));
+                    int isbn = Integer.parseInt(dataLineArr[0]);
+                    String title = dataLineArr[1];
+                    String author = dataLineArr[2];
+                    int year = Integer.parseInt(dataLineArr[3]);
+                    bookList.add(new Book(isbn, title, author, year));
+                    dataLine = bufferedReader.readLine();
+                }
             }
             return bookList;
         } catch (Exception e) {
-            System.out.println("Cant found file from the path" + e);
+            e.printStackTrace();
             String path = Input.getStringInputValue("Please provide new path: ");
             Library.setPath(path);
             return readBooksFromFile();
@@ -60,18 +61,42 @@ public class Library {
 
     @Override
     public String toString() {
-        StringBuilder bookListString = new StringBuilder();
-        for (int i = 0; i < bookList.size(); i++) {
-            String bookString = String.format("Book %2d: %s\n" +
-                            "    ISBN: %.0f\n" +
-                            "    author: %s\n" +
-                            "    year: %d\n", i + 1,
-                    bookList.get(i).getTitle(),
-                    bookList.get(i).getIsbn(),
-                    bookList.get(i).getAuthor(),
-                    bookList.get(i).getYear());
-            bookListString.append(bookString);
+        if (!bookList.isEmpty()) {
+            StringBuilder bookListString = new StringBuilder();
+            for (int i = 0; i < bookList.size(); i++) {
+                String bookString = String.format("Book %2d: %s\n" +
+                                "    ISBN: %.0f\n" +
+                                "    author: %s\n" +
+                                "    year: %d\n", i + 1,
+                        bookList.get(i).getTitle(),
+                        bookList.get(i).getIsbn(),
+                        bookList.get(i).getAuthor(),
+                        bookList.get(i).getYear());
+                bookListString.append(bookString);
+            }
+            return bookListString.toString();
+        } else {
+            return "The book list is empty";
         }
-        return bookListString.toString();
+    }
+
+    public static String toString(List<Book> bookList) {
+        if (!bookList.isEmpty()) {
+            StringBuilder bookListString = new StringBuilder();
+            for (int i = 0; i < bookList.size(); i++) {
+                String bookString = String.format("Book %2d: %s\n" +
+                                "    ISBN: %.0f\n" +
+                                "    author: %s\n" +
+                                "    year: %d\n", i + 1,
+                        bookList.get(i).getTitle(),
+                        bookList.get(i).getIsbn(),
+                        bookList.get(i).getAuthor(),
+                        bookList.get(i).getYear());
+                bookListString.append(bookString);
+            }
+            return bookListString.toString();
+        } else {
+            return "The book list is empty";
+        }
     }
 }
