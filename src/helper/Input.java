@@ -8,12 +8,16 @@ public class Input {
 
     public static float getFloatInputValue(String message) {
         System.out.print(message);
-        return scanner.nextFloat();
+        return Float.parseFloat(scanner.nextLine());
+    }
+    public static double getDoubleInputValue(String message) {
+        System.out.print(message);
+        return Double.parseDouble(scanner.nextLine());
     }
 
     public static String getStringInputValue(String message) {
         System.out.print(message);
-        return scanner.nextLine();
+        return scanner.nextLine().trim();
     }
 
     public static int[] getIntArrayInputValue() {
@@ -32,6 +36,6 @@ public class Input {
 
     public static int getIntInputValue(String message) {
         System.out.print(message);
-        return scanner.nextInt();
+        return Integer.parseInt(scanner.nextLine());
     }
 }
