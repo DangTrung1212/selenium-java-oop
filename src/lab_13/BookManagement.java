@@ -72,14 +72,7 @@ public class BookManagement {
     public static void writeNewBook() {
 //        input information of the book
         double isbn = Input.getDoubleInputValue("Enter book isbn: ");
-        boolean isExistedBook = false;
-        for (Book book : bookList) {
-            if (book.getIsbn() == isbn) {
-                System.out.println("The book has ISBN you enter is already existed, please enter other ISBN");
-                isExistedBook = true;
-            }
-        }
-        if (!isExistedBook) {
+        if (!isTheBookExisted(isbn)) {
             String title = Input.getStringInputValue("Enter book title: ");
             String author = Input.getStringInputValue("Enter book author: ");
             int year = Input.getIntInputValue("Enter publish year: ");
@@ -91,7 +84,17 @@ public class BookManagement {
         } else {
             writeNewBook();
         }
-
+    }
+    public static boolean isTheBookExisted(double isbn) {
+        boolean isExisted = false;
+        for (Book book : bookList) {
+            if (book.getIsbn() == isbn) {
+                System.out.println("The book has ISBN you enter is already existed, please enter other ISBN");
+                isExisted = true;
+                break;
+            }
+        }
+        return isExisted;
     }
 
     public static void updateBook() {

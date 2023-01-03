@@ -5,3 +5,5 @@
 5,the art of hero,trungdn,2023
 6,the winner,win,2023
 7,the war of lion,FFT,1996
+8,the war of dog,dogman,2023
+9,The power of ranger,super man,1997
