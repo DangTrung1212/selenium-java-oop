@@ -71,6 +71,12 @@ public class BookManagement {
     public static void writeNewBook() {
 //        input information of the book
         double isbn = Input.getDoubleInputValue("Enter book isbn: ");
+        for (Book book : bookList) {
+            if (book.getIsbn() == isbn) {
+                System.out.println("The book has ISBN you enter is already existed, please enter other ISBN");
+                writeNewBook();
+            }
+        }
         String title = Input.getStringInputValue("Enter book title: ");
         String author = Input.getStringInputValue("Enter book author: ");
         int year = Input.getIntInputValue("Enter publish year: ");
