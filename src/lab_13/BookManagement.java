@@ -2,6 +2,7 @@ package lab_13;
 
 import helper.Input;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -71,25 +72,26 @@ public class BookManagement {
     public static void writeNewBook() {
 //        input information of the book
         double isbn = Input.getDoubleInputValue("Enter book isbn: ");
+        boolean isExistedBook = false;
         for (Book book : bookList) {
             if (book.getIsbn() == isbn) {
                 System.out.println("The book has ISBN you enter is already existed, please enter other ISBN");
-                writeNewBook();
+                isExistedBook = true;
             }
         }
-        String title = Input.getStringInputValue("Enter book title: ");
-        String author = Input.getStringInputValue("Enter book author: ");
-        int year = Input.getIntInputValue("Enter publish year: ");
+        if (!isExistedBook) {
+            String title = Input.getStringInputValue("Enter book title: ");
+            String author = Input.getStringInputValue("Enter book author: ");
+            int year = Input.getIntInputValue("Enter publish year: ");
 //        write book into file
-        try {
             Book book = new Book(isbn, title, author, year);
             bookList.add(book);
             Library.saveBooksToFile(bookList);
             System.out.println("Book: " + book + " has successfully saved to file");
-            Library.saveBooksToFile(bookList);
-        } catch (Exception e) {
-            System.out.println("Something went wrong " + e);
+        } else {
+            writeNewBook();
         }
+
     }
 
     public static void updateBook() {

@@ -1,2 +1,7 @@
 1,the life of tiger,trung,2022
 2,The life of human,dang trung,2025
+3,the art of war,TRungdn,2022
+4,the art of painting,MR A,2022
+5,the art of hero,trungdn,2023
+6,the winner,win,2023
+7,the war of lion,FFT,1996
