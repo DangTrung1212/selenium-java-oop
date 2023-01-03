@@ -36,4 +36,19 @@ public class Book {
     public String toString() {
         return String.format("%.0f", isbn) + "," + title + "," + author + "," + year;
     }
+
+    public static String toString(Book book) {
+        if (book!= null) {
+            return String.format("Book Title: %s\n" +
+                                "    ISBN: %.0f\n" +
+                                "    author: %s\n" +
+                                "    year: %d\n",
+                        book.getTitle(),
+                        book.getIsbn(),
+                       book.getAuthor(),
+                        book.getYear());
+        } else {
+            return "There is no the book you enter... ";
+        }
+    }
 }

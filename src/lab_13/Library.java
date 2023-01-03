@@ -21,12 +21,12 @@ public class Library {
             String dataLine = bufferedReader.readLine();
             if (dataLine != null) {
                 while (dataLine != null) {
-                    String[] dataLineArr = dataLine.split(",");
-                    System.out.println(Arrays.toString(dataLineArr));
-                    int isbn = Integer.parseInt(dataLineArr[0]);
-                    String title = dataLineArr[1];
-                    String author = dataLineArr[2];
-                    int year = Integer.parseInt(dataLineArr[3]);
+                    String[] dataLineArray = dataLine.split(",");
+                    System.out.println(Arrays.toString(dataLineArray));
+                    int isbn = Integer.parseInt(dataLineArray[0]);
+                    String title = dataLineArray[1];
+                    String author = dataLineArray[2];
+                    int year = Integer.parseInt(dataLineArray[3]);
                     bookList.add(new Book(isbn, title, author, year));
                     dataLine = bufferedReader.readLine();
                 }
@@ -80,23 +80,4 @@ public class Library {
         }
     }
 
-    public static String toString(List<Book> bookList) {
-        if (!bookList.isEmpty()) {
-            StringBuilder bookListString = new StringBuilder();
-            for (int i = 0; i < bookList.size(); i++) {
-                String bookString = String.format("Book %2d: %s\n" +
-                                "    ISBN: %.0f\n" +
-                                "    author: %s\n" +
-                                "    year: %d\n", i + 1,
-                        bookList.get(i).getTitle(),
-                        bookList.get(i).getIsbn(),
-                        bookList.get(i).getAuthor(),
-                        bookList.get(i).getYear());
-                bookListString.append(bookString);
-            }
-            return bookListString.toString();
-        } else {
-            return "The book list is empty";
-        }
-    }
 }

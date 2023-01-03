@@ -2,10 +2,8 @@ package lab_13;
 
 import helper.Input;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 public class BookManagement {
     static boolean isContinue = true;
@@ -45,7 +43,7 @@ public class BookManagement {
                 writeNewBook();
                 break;
             case 2:
-                findBooks();
+                findBook();
                 break;
             case 3:
                 updateBook();
@@ -61,17 +59,23 @@ public class BookManagement {
         }
     }
 
-    public static List<Book> findBooks() {
-        int isbn = Input.getIntInputValue("Please enter isbn of the book you want to search/update: ");
-        List<Book> foundBooks = bookList.stream().filter(book -> book.getIsbn() == isbn)
-                .collect(Collectors.toList());
-        System.out.println(Library.toString(foundBooks));
-        return foundBooks;
+    public static Book findBook() {
+        int isbn = Input.getIntInputValue("Please enter ISBN of the book you want to create/update/delete/: ");
+        Book foundBook = null;
+        for (Book book : bookList) {
+            if (book.getIsbn() == isbn) {
+                foundBook = book;
+                break;
+            }
+        }
+        System.out.println(Book.toString(foundBook));
+        return foundBook;
     }
 
     public static void writeNewBook() {
-//        input information of the book
+//        input ISBN of the book
         double isbn = Input.getDoubleInputValue("Enter book isbn: ");
+//        check if it already existed or not
         if (!isTheBookExisted(isbn)) {
             String title = Input.getStringInputValue("Enter book title: ");
             String author = Input.getStringInputValue("Enter book author: ");
@@ -85,6 +89,7 @@ public class BookManagement {
             writeNewBook();
         }
     }
+
     public static boolean isTheBookExisted(double isbn) {
         boolean isExisted = false;
         for (Book book : bookList) {
@@ -98,40 +103,34 @@ public class BookManagement {
     }
 
     public static void updateBook() {
-        List<Book> updatedBooks = findBooks();
-        if (updatedBooks != null) {
-            for (Book updatedBook : updatedBooks) {
-                String title = Input.getStringInputValue("Enter title you want to update: ");
-                title = title.equals("") ? updatedBook.getTitle() : title;
-                String author = Input.getStringInputValue("Enter author you want to update: ");
-                author = author.equals("") ? updatedBook.getAuthor() : author;
-                int year = updatedBook.getYear();
-                try {
-                    year = Input.getIntInputValue("Enter year you want to update: ");
-                } catch (Exception e) {
-                    System.out.println("Not valid year format, using previous year");
-                } finally {
-                    Book editedBook = new Book(updatedBook.getIsbn(), title, author, year);
-                    bookList.set(bookList.indexOf(updatedBook), editedBook);
-                }
+        Book foundBook = findBook();
+        if (foundBook != null) {
+            String title = Input.getStringInputValue("Enter title you want to update: ");
+            title = title.equals("") ? foundBook.getTitle() : title;
+            String author = Input.getStringInputValue("Enter author you want to update: ");
+            author = author.equals("") ? foundBook.getAuthor() : author;
+            int year = foundBook.getYear();
+            try {
+                year = Input.getIntInputValue("Enter year you want to update: ");
+            } catch (Exception e) {
+                System.out.println("Not valid year format, using previous year");
+            } finally {
+                Book editedBook = new Book(foundBook.getIsbn(), title, author, year);
+                bookList.set(bookList.indexOf(foundBook), editedBook);
             }
-            Library.saveBooksToFile(bookList);
         }
+        Library.saveBooksToFile(bookList);
 
 
     }
 
     public static void deleteBook() {
-        int isbn = Input.getIntInputValue("Please enter isbn of the book you want to delete: ");
-        List<Book> deletedBooks = bookList.stream().filter(book -> book.getIsbn() == isbn)
-                .collect(Collectors.toList());
-        if (!deletedBooks.isEmpty()) {
-            deletedBooks.forEach(deletedBook -> bookList.remove(deletedBook));
+        Book deletedBook = findBook();
+        if (deletedBook!=null) {
+            bookList.remove(deletedBook);
             Library.saveBooksToFile(bookList);
-            System.out.println("The Book with ISBN = " + isbn + " is successfully deleted");
+            System.out.printf("The Book with ISBN = %.0f is successfully deleted\n", deletedBook.getIsbn());
 
-        } else {
-            System.out.println("There is no book which has isbn you entered.");
         }
     }
 
